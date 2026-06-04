@@ -130,11 +130,7 @@ Kanban — это более масштабный подход к мультиа
 | Изоляция | Контекст субагента | Полный профиль с памятью и навыками |
 | Время жизни | Синхронный вызов | Дни/недели через cron |
 
-### Gateway (мессенджеры)
-Единый агент на всех платформах: Telegram, Discord, Slack, WhatsApp, Signal, Matrix, Email, SMS, Mattermost, Home Assistant, DingTalk, Feishu, WeCom, iMessage (BlueBubbles), WeChat, API Server, Webhooks. Open WebUI подключается через API Server adapter.
 
-### Профили
-Изолированные окружения: свой config.yaml, .env, навыки, сессии, память, cron. Полезно для разделения рабочих и личных контекстов.
 
 ## Аспекты безопасности
 

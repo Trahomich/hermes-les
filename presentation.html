@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes LES — Презентация</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/black.min.css">
+<style>
+.reveal { font-size: 32px; }
+.reveal h1 { font-size: 2.2em; text-transform: none; }
+.reveal h2 { font-size: 1.6em; text-transform: none; }
+.reveal h3 { font-size: 1.2em; text-transform: none; }
+.reveal section { text-align: left; }
+.reveal .center { text-align: center; }
+.reveal code { font-size: 0.7em; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; }
+.reveal pre code { display: block; padding: 12px; font-size: 0.55em; line-height: 1.4; }
+.reveal .highlight { color: #42d392; }
+.reveal .warn { color: #e74c3c; }
+.reveal .dim { color: #888; font-size: 0.8em; }
+.reveal .big-emoji { font-size: 2em; }
+.reveal ul { margin-left: 0.5em; }
+.reveal li { margin-bottom: 0.4em; }
+.reveal blockquote { border-left: 4px solid #42d392; padding-left: 1em; font-style: normal; background: none; }
+.reveal table { font-size: 0.65em; }
+.reveal table th { border-bottom: 2px solid #555; }
+.reveal table td { border-bottom: 1px solid #333; padding: 6px 10px; }
+.reveal .fragment.fade-in { opacity: 0; }
+.reveal .fragment.fade-in.visible { opacity: 1; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- 1. Титульный слайд -->
+<section>
+<div class="center">
+<p class="big-emoji">🤖</p>
+<h1>Hermes LES</h1>
+<p class="dim">AI-агент для рабочих задач<br>с контролем безопасности</p>
+</div>
+</section>
+
+<!-- 2. Откуда мы начали -->
+<section>
+<h2>Откуда мы начали</h2>
+<p>Пару месяцев назад я рассказывал вам про <span class="highlight">OpenClaw</span> — современный подход к работе с ИИ.</p>
+<p>Программисты уже вовсю используют Claude в режиме агента, запущенного прямо на рабочей машине.</p>
+<p>По сути, это claw-агент на вашем ноутбуке — удобно, но не без проблем.</p>
+<p class="warn">Главная из них — безопасность.</p>
+</section>
+
+<!-- 3. Проблема -->
+<section>
+<h2>Почему предыдущие решения не подошли</h2>
+<p><strong>AnythingLLM</strong> — эксперимент оказался неудачным. Платформа заточена под другое, а про безопасность там говорить не о чём.</p>
+<p class="fragment fade-in"><strong>Все claw-агенты работают через мессенджеры.</strong></p>
+<p class="fragment fade-in warn">Мессенджер — это как минимум дыра в безопасности.</p>
+</section>
+
+<!-- 4. Решение -->
+<section>
+<h2>Что удалось сделать</h2>
+<p>Я соединил <span class="highlight">Hermes</span> и <span class="highlight">Open WebUI</span>.</p>
+<p>Интерфейс вам знаком — вы уже пару лет пользуетесь им для доступа к ИИ.</p>
+<p class="fragment fade-in">Но теперь за привычным веб-интерфейсом стоит <strong>не просто модель</strong>, а полноценный помощник, который может <span class="highlight">действовать своими цифровыми руками</span>.</p>
+</section>
+
+<!-- 5. Что такое Hermes -->
+<section>
+<h2>Что такое Hermes Agent</h2>
+<p>Open-source AI-агентный фреймворк от <span class="highlight">Nous Research</span>.</p>
+<p>Та же категория, что Claude Code, Codex, OpenClaw — автономные агенты с tool calling.</p>
+<p>Работает с <strong>любыми</strong> LLM-провайдерами: OpenRouter, Anthropic, OpenAI, DeepSeek, локальные модели.</p>
+</section>
+
+<!-- 6. Ключевые особенности -->
+<section>
+<h2>Ключевые особенности</h2>
+<p><span class="highlight">Навыки (skills)</span> — Hermes учится на опыте. Сохраняет повторяющиеся процедуры как навыки, переиспользует в будущих сессиях.</p>
+<p><span class="highlight">Память между сессиями</span> — помнит предпочтения, детали окружения, уроки прошлых разговоров.</p>
+<p><span class="highlight">Расширяемость</span> — плагины, MCP-серверы, кастомные инструменты, webhook-триггеры, cron, полный доступ к Python-экосистеме.</p>
+</section>
+
+<!-- 7. Как это выглядит на практике -->
+<section>
+<h2>Как это выглядит на практике</h2>
+<p>Много сложных слов, но на самом деле всё это происходит под капотом.</p>
+<p>Пользователь общается с агентом <strong>исключительно текстом</strong> — обычный чат, как с коллегой.</p>
+<p class="fragment fade-in">Разница в том, что собеседник <strong>не просто отвечает, а действует</strong>.</p>
+</section>
+
+<!-- 8. Примеры задач -->
+<section>
+<h2>Примеры задач</h2>
+<p>Подключить MCP-сервер и начать с ним работать</p>
+<p>Провести исследование по теме</p>
+<p>Разработать Helm-чарт и развернуть в Kubernetes</p>
+<p>Помочь аналитику разобраться с данными</p>
+<p>Провести экспертную оценку по ИБ</p>
+<p class="fragment fade-in dim">И это только начало: задачи по расписанию, работа с документами, отправка в мессенджеры и почту, монотонная рутина с API.</p>
+</section>
+
+<!-- 9. Навыки -->
+<section>
+<h2>Навыки — один раз объяснил, всегда работает</h2>
+<blockquote>
+Заведите чат → добейтесь результата → попросите сохранить в навык → переиспользуйте в любое время
+</blockquote>
+<p>Не нужно каждый раз объяснять заново.</p>
+</section>
+
+<!-- 10. Аналогия отдела -->
+<section>
+<h2>Мультиагентность — как отдел</h2>
+<p>Вы — руководитель отдела. У вас задача, которую одному не потянуть.</p>
+<p>Вы собираете команду: один силён в анализе, другой быстро пишет код, третий проверяет безопасность.</p>
+<p>Вы раздаёте задачи, координируете, собираете результат.</p>
+<p class="fragment fade-in"><span class="highlight">Hermes работает так же:</span> вместо одного агента — отдел подчинённых, каждый со своей специализацией.</p>
+</section>
+
+<!-- 11. Мультиагентная схема -->
+<section>
+<h2>Мультиагентность в Hermes</h2>
+<pre><code>
+Пользователь
+    │
+    ▼
+┌─────────┐
+│ Hermes  │ ← основной агент
+└────┬────┘
+     │
+     ├─ delegate_task ──→ [Субагент 1] → результат
+     ├─ delegate_task ──→ [Субагент 2] → результат
+     └─ delegate_task ──→ [Субагент 3] → результат
+</code></pre>
+<p>До 3 параллельных задач. Родитель получает только финальный summary.</p>
+</section>
+
+<!-- 12. Kanban -->
+<section>
+<h2>Kanban-оркестрация</h2>
+<p>Для долговременных проектов — не одна сессия, а постоянная доска.</p>
+<pre><code>
+┌──────────────────────────────────┐
+│       Kanban Board (SQLite)      │
+│  Backlog → In Progress → Done   │
+└────┬──────────┬──────────┬───────┘
+     │          │          │
+  Worker A   Worker B   Worker C
+</code></pre>
+<p class="dim">Диспетчер декомпозирует → воркеры выполняют → результат доставляется</p>
+</section>
+
+<!-- 13. Безопасность — проблема -->
+<section>
+<h2>Опасность полного доверия</h2>
+<p>Доверить агенту полный контроль — как дать ключи от квартиры незнакомцу, который убедительно говорит, что умеет убираться.</p>
+<p class="fragment fade-in">Агент может <span class="warn">удалить критичные файлы</span>, «помогая» выполнить задачу.</p>
+<p class="fragment fade-in">Агент может <span class="warn">придумать несуществующую команду</span> — и система сломается.</p>
+<p class="fragment fade-in"><code>rm -rf /tmp/ *</code> вместо <code>rm -rf /tmp/*</code> — один пробел, и прощай файловая система.</p>
+</section>
+
+<!-- 14. Ещё риски -->
+<section>
+<h2>Ещё риски</h2>
+<p>Утечка данных: API-ключи, токены, пароли — могут случайно уйти в лог или мессенджер.</p>
+<p>Компрометация цепочки: один галлюцинирующий субагент передаёт неверные данные — все следующие агенты работают на основе ложных предпосылок.</p>
+<p>Саморасширение привилегий: cron-задача, новый пакет, открытый порт — всё «для задачи», но без контроля человека.</p>
+<p class="fragment fade-in warn">Кнопки «Undo» нет. Git спасает частично.</p>
+</section>
+
+<!-- 15. Решение — Надзиратель -->
+<section>
+<h2>Решение: Надзиратель (Supervisor)</h2>
+<p>Ключевая идея: <span class="highlight">не доверять агенту выполнять команды без предварительной проверки</span>.</p>
+<p class="warn">Проверка результата ПОСЛЕ выполнения бессмысленна — система уже сломана.</p>
+<p class="fragment fade-in">Надзиратель перехватывает и одобряет команды <strong>ДО</strong> их выполнения.</p>
+</section>
+
+<!-- 16. Схема Надзирателя -->
+<section>
+<h2>Схема работы</h2>
+<pre><code>
+Пользователь
+    │
+    ▼
+┌──────────────┐
+│  Надзиратель  │ ← ограниченный toolset
+└──────┬───────┘
+       │ делегирует задачу
+       ▼
+┌──────────────┐
+│  Исполнитель │ ← полный toolset
+└──────┬───────┘
+       │ формирует команды, НЕ выполняет
+       ▼
+┌──────────────┐
+│  Надзиратель  │ ← проверяет ДО выполнения
+└──────┬───────┘    опасные — блокирует
+       │            безопасные — одобряет
+       ▼
+  Одобренные → Исполнитель выполняет
+       │
+       ▼
+  Результат → Пользователю
+</code></pre>
+</section>
+
+<!-- 17. Реализация в Hermes -->
+<section>
+<h2>Реализация в Hermes</h2>
+<p><span class="highlight">approvals.mode: smart</span> — встроенная защита из коробки. LLM оценивает каждую shell-команду ДО выполнения: опасные блокирует, безопасные одобряет.</p>
+<p class="fragment fade-in"><span class="highlight">Двухагентная схема</span> через delegate_task:</p>
+<p>Ревьюер запускается с пустым toolset — у него нет терминала, файловой системы, браузера. Только анализ текста. Он физически не может выполнить команду, только оценить.</p>
+<p class="fragment fade-in">Вердикт: <code>ALLOW</code> / <code>WARN</code> / <code>DENY</code></p>
+<p class="dim">Реализовано в навыке command-safety-gate</p>
+</section>
+
+<!-- 18. Ограничения -->
+<section>
+<h2>Ограничения</h2>
+<p>Надзиратель — тоже LLM. Может галлюцинировать или пропустить угрозу.</p>
+<p>Двойная стоимость токенов — два агента вместо одного.</p>
+<p>Задержка — проверка плана добавляет время к каждой задаче.</p>
+<p>Ложные срабатывания — может заблокировать корректное действие.</p>
+<p class="fragment fade-in"><span class="highlight">Но это дополнительный слой защиты, а не замена человеческому контролю.</span></p>
+</section>
+
+<!-- 19. Что дальше -->
+<section>
+<h2>Что дальше</h2>
+<p>Решаем вопрос с <span class="highlight">безопасностью</span> — тестируем кейсы, подбираем схему, при которой агент не наделает беды.</p>
+<p class="fragment fade-in">Задача <span class="highlight">масштабируемости</span>: Hermes однопользовательский, а нам нужно 70 инстансов — по одному на каждого сотрудника.</p>
+<p class="fragment fade-in">Пока идёт подготовка к развёртыванию — <strong>предлагаю поучаствовать в эксперименте на тестовом стенде</strong>.</p>
+</section>
+
+<!-- 20. Финал -->
+<section>
+<div class="center">
+<p class="big-emoji">🚀</p>
+<h2>Попробуйте агента в деле</h2>
+<p>Тестовый стенд → обратная связь → безопасное развёртывание</p>
+<p class="dim">Вопросы?</p>
+</div>
+</section>
+
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script>
+Reveal.initialize({
+  hash: true,
+  transition: 'slide',
+  transitionSpeed: 'default',
+  progress: true,
+  controls: true,
+  width: 1100,
+  height: 700,
+});
+</script>
+</body>
+</html>
